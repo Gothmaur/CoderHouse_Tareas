@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ListaTrejo';
+  numero = 0;
+  hayError = true;
+  myFontSize = '50px';
+
+  Lista = ['Mauricio Trejo','Mariana Garcia','Estrella De Santiago','Gabriela Arvizu','Paola Torres',''];
+
+  constructor() {
+    setInterval(() => {
+      this.numero++;
+    }, 1000);
+  }
 }
