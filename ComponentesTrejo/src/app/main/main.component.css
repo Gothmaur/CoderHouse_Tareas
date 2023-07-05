@@ -1,0 +1,6 @@
+main{
+    background-color: burlywood;
+    padding: 1rem;
+    margin-left: var(--sidebar-width);
+    min-height: calc(100vh - var(--header-height));
+}

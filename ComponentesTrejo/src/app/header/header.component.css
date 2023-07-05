@@ -1,0 +1,10 @@
+header{
+    background-color: beige;
+    display:flex;
+    align-items: center;
+    height: var(--header-height);
+    padding: 0 1rem;
+}
+header h1{
+    padding: 0%;
+}
