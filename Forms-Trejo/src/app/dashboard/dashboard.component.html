@@ -1,0 +1,33 @@
+<mat-drawer-container class="example-container" autosize>
+    <!--SideBar-->
+    <mat-drawer mode="over" #drawer class="example-sidenav" mode="side">
+      <p>Se abrió el sidebar</p>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+        <!-- Toolbar -->
+        <mat-toolbar color = "primary">
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>Mi menú</span>
+            <span class="example-spacer"></span>
+            
+            <!-- Boton de favorito y compartir
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+                <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                <mat-icon>share</mat-icon>
+           </button>-->
+        
+        </mat-toolbar>
+        <!--Contenido-->
+        <div class="main">
+            <app-users></app-users>
+        </div>
+    </div>
+
+    
+  
+  </mat-drawer-container>

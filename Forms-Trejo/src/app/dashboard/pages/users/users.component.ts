@@ -1,5 +1,16 @@
 import { Component, Pipe } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from './models/Users';
+
+const ELEMENT_DATA: User[] = [
+  {
+    nombre:'Mauricio',
+    apellido1:'Trejo',
+    apellido2:'Miranda',
+    email: 'mtrejom1501@alumno.ipn.mx',
+    clave: '123123'
+  }
+]
 
 @Component({
   selector: 'app-users',
@@ -7,6 +18,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent {
+
+  public users: User[] = ELEMENT_DATA;
 
   //Validaciones requeridas para cada uno de los campos 
   NombreControl = new FormControl(null,[
@@ -37,6 +50,10 @@ export class UsersComponent {
   });
 
   onSubmint():void{
-    alert(JSON.stringify(this.usersForm.value));
+    if(this.usersForm.invalid){
+      alert("Por favor llene todos los campos correctamente");
+    }else{
+      alert(JSON.stringify(this.usersForm.value));
+    }
   }
 }
