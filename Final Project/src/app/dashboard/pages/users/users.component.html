@@ -1,0 +1,8 @@
+<button mat-flat-button color="primary" type="button" (click)="onCreateUser()">
+    <mat-icon>add</mat-icon>
+    Agregar Usuario
+</button>
+
+<app-users-table [dataSource] = 'users' 
+(deleteUser)="onDeleteUser($event)"
+(editUser)="onEditUser($event)"></app-users-table>
