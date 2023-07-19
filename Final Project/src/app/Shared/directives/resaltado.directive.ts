@@ -15,7 +15,7 @@ export class ResaltadoDirective implements OnChanges {
     this.renderer2.setStyle(
       this.elementRef.nativeElement,
       'font-size',
-      20
+      '20px'
     );this.renderer2.setStyle(
       this.elementRef.nativeElement,
       'color',
