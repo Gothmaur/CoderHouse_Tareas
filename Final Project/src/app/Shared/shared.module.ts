@@ -8,11 +8,13 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatDialogModule } from "@angular/material/dialog"
 import { MatTableModule } from "@angular/material/table";
 import { FullNamePipe } from './pipes/full-name.pipe';
+import { ResaltadoDirective } from './directives/resaltado.directive';
 
 
 @NgModule({
   declarations: [
-    FullNamePipe
+    FullNamePipe,
+    ResaltadoDirective
   ],
   imports: [
     CommonModule
