@@ -8,7 +8,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatDialogModule } from "@angular/material/dialog"
 import { MatTableModule } from "@angular/material/table";
 import { FullNamePipe } from './pipes/full-name.pipe';
-import { ResaltadoDirective } from './directives/resaltado.directive';
+import { ResaltadoDirective } from "./directives/resaltado.directive";
 
 
 @NgModule({
@@ -29,6 +29,7 @@ import { ResaltadoDirective } from './directives/resaltado.directive';
     MatFormFieldModule,
     MatTableModule,
     FullNamePipe,
+    ResaltadoDirective
   ]
 })
 export class SharedModule { 
