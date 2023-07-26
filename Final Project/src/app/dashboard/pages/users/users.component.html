@@ -3,6 +3,11 @@
     Agregar Usuario
 </button>
 
-<app-users-table [dataSource] = 'users' 
+<div>
+    <span appResaltado>
+        Aquí pordrá visualizar la información de los usuarios.
+    </span>
+</div>
+<app-users-table [dataSource] = '(users | async) || []' 
 (deleteUser)="onDeleteUser($event)"
 (editUser)="onEditUser($event)"></app-users-table>

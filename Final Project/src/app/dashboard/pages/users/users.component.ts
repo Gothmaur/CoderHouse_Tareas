@@ -2,17 +2,11 @@ import { Component, Pipe } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserDialogComponent } from './components/user-dialog/user-dialog.component';
 import { User } from './models/Users';
+import { UserService } from './services/user.service';
+import { NotifyService } from 'src/app/core/services/notify.service';
+import { Observable, map, tap } from 'rxjs';
 
-const ELEMENT_DATA: User[] = [
-  {
-    id: 1,
-    nombre:'Mauricio',
-    apellido1:'Trejo',
-    apellido2:'Miranda',
-    email: 'mtrejom1501@alumno.ipn.mx',
-    clave: '123123'
-  }
-]
+
 
 @Component({
   selector: 'app-users',
@@ -21,9 +15,26 @@ const ELEMENT_DATA: User[] = [
 })
 export class UsersComponent {
 
-  public users: User[] = ELEMENT_DATA;
+  public users: Observable<User[]>;
   
-  constructor(private matDialog: MatDialog){}
+  constructor(private matDialog: MatDialog, 
+    private userServices:UserService,
+    private notifyServices:NotifyService){
+      
+      this.notifyServices.showSuccess("Se cargó correctamente");
+      this.users = this.userServices.getUsers().pipe(
+        tap((valor) => console.log('Valor', valor)),
+        map((valor) => valor.map((usuario) => (
+          {
+            ...usuario, 
+            nombre: usuario.nombre.toUpperCase(), 
+            apellido1: usuario.apellido1.toUpperCase(), 
+            apellido2: usuario.apellido2.toUpperCase()
+          }))),
+        tap((valor) => console.log('Valor nuevo', valor)),
+      );
+      this.userServices.loadUsers();
+    }
 
 
 
@@ -32,34 +43,31 @@ export class UsersComponent {
     const dialogRef=this.matDialog.open(UserDialogComponent)
     //Cuando cierre, haré esto
     .afterClosed().subscribe({
-      next: (v) => {
+      /*next: (v) => {
         //Log para ver que retorna el form
         //console.log(v);
         if(v) {
           //console.log('recibí el valor ',v);
-          this.users = [
-            ...this.users,
-            {
-              id: this.users.length+1,
-              nombre: v.Nombre,
-              apellido1: v.PrimerApellido,
-              apellido2: v.SegundoApellido,
-              email: v.Email,
-              clave: v.Clave
-            }
-          ];
+          this.userServices.createUser({
+            id: this.users.length+1,
+            nombre: v.Nombre,
+            apellido1: v.PrimerApellido,
+            apellido2: v.SegundoApellido,
+            email: v.Email,
+            clave: v.Clave
+          });
           //console.log('Aprobado');
         }
         else{ 
           //console.log('cancelado');
         }
-      },
+      },*/
     });
   }
 
   onDeleteUser(userToDelete:User):void{
     if(confirm("¿Está seguro de eliminar este usuario? {{userToDelete.nombre}}")){
-      this.users = this.users.filter((u) => u.id != userToDelete.id);
+      //this.users = this.users.filter((u) => u.id != userToDelete.id);
     }
   }
 
@@ -68,7 +76,7 @@ export class UsersComponent {
       data: userToEdit
     })
     .afterClosed().subscribe({
-      next: (data) =>{
+      /*next: (data) =>{
         this.users = this.users.map((user)=>{
           if(user.id==userToEdit.id){
             console.log("Intento cambiar el usuario");
@@ -80,7 +88,7 @@ export class UsersComponent {
             return user;
           }
           });
-        }
+        }*/
       });
     }
 }

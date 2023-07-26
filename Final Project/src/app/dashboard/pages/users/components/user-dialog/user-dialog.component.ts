@@ -13,6 +13,8 @@ import { User } from '../../models/Users';
 })
 export class UserDialogComponent {
 
+
+  
   //Validaciones requeridas para cada uno de los campos 
   NombreControl = new FormControl<string | null>(null,[
     Validators.required, //Requerido
@@ -33,6 +35,7 @@ export class UserDialogComponent {
     Validators.required, //Requerido
   ]);
 
+
   usersForm = new FormGroup({
     Nombre: this.NombreControl,
     PrimerApellido: this.PrimerApellidoControl,
@@ -40,6 +43,8 @@ export class UserDialogComponent {
     Email: this.EmailControl,
     Clave: this.ClaveControl
   });
+
+
 
 constructor(private dialogRef: MatDialogRef<UserDialogComponent>,
   @Inject(MAT_DIALOG_DATA) private data?:User,
@@ -52,6 +57,7 @@ constructor(private dialogRef: MatDialogRef<UserDialogComponent>,
       this.ClaveControl.setValue(this.data.clave);
     }
   }
+
 
   onSubmint():void{
     if(this.usersForm.invalid){

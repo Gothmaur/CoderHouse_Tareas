@@ -4,6 +4,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { UsersModule } from './pages/users/users.module';
 import { SharedModule } from '../Shared/shared.module';
+import {MatListModule} from '@angular/material/list';
 
 
 
@@ -16,6 +17,7 @@ import { SharedModule } from '../Shared/shared.module';
     SharedModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatListModule,
     UsersModule
   ],
   exports:  [

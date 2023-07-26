@@ -1,7 +1,12 @@
 <mat-drawer-container class="example-container" autosize>
     <!--SideBar-->
     <mat-drawer mode="over" #drawer class="example-sidenav" mode="side">
-      <p>Se abrió el sidebar</p>
+      <mat-nav-list>
+        <!--/dashboard -> /dashboard/home-->
+        <a routerLink="home" mat-list-icon>Home</a>
+        <!--/dashboard -> /dashboard/users-->
+        <a routerLink="users" mat-list-icon>Usuarios</a>
+      </mat-nav-list>
     </mat-drawer>
   
     <div class="example-sidenav-content">
