@@ -16,6 +16,24 @@ export class NavMenuComponent {
     });
   }
 
+  goToUsers():void{
+    this.router.navigate(['dashboard','users'],{
+      //relativeTo: this.activatedRoute,
+    });
+  }
+
+  goToProducts():void{
+    this.router.navigate(['dashboard','products'],{
+      //relativeTo: this.activatedRoute,
+    });
+  }
+
+  goToHome():void{
+    this.router.navigate(['dashboard','home'],{
+      //relativeTo: this.activatedRoute,
+    });
+  }
+
 }
 
 

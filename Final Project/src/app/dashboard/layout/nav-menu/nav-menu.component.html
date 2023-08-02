@@ -1,13 +1,13 @@
 <mat-nav-list>
 
     <!--/dashboard -> /dashboard/home-->
-    <a routerLink="/dashboard/home" mat-list-item>Inicio</a>
+    <a (click)="goToHome()" mat-list-item>Inicio</a>
     
     <!--/dashboard -> /dashboard/users-->
-    <a routerLink="/dashboard/users" mat-list-item>Usuarios</a>
+    <a (click)="goToUsers()" mat-list-item>Usuarios</a>
 
-    <!--/dashboard -> /dashboard/users-->
-    <a routerLink="/dashboard/products" mat-list-item >Productos</a>
+    <!--/dashboard -> /dashboard/products-->
+    <a (click)="goToProducts()" mat-list-item >Productos</a>
 
     <!--/dashboard -> /auth-->
     <a mat-list-item  (click)="LogOut()">Cerrar Sesión</a>
