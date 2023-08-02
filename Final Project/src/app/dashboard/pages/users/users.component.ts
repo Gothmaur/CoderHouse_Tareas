@@ -43,13 +43,12 @@ export class UsersComponent {
     const dialogRef=this.matDialog.open(UserDialogComponent)
     //Cuando cierre, haré esto
     .afterClosed().subscribe({
-      /*next: (v) => {
+      next: (v) => {
         //Log para ver que retorna el form
         //console.log(v);
         if(v) {
           //console.log('recibí el valor ',v);
           this.userServices.createUser({
-            id: this.users.length+1,
             nombre: v.Nombre,
             apellido1: v.PrimerApellido,
             apellido2: v.SegundoApellido,
@@ -61,13 +60,13 @@ export class UsersComponent {
         else{ 
           //console.log('cancelado');
         }
-      },*/
+      },
     });
   }
 
   onDeleteUser(userToDelete:User):void{
     if(confirm("¿Está seguro de eliminar este usuario? {{userToDelete.nombre}}")){
-      //this.users = this.users.filter((u) => u.id != userToDelete.id);
+      this.userServices.deleteUserById(userToDelete.id);
     }
   }
 
@@ -76,19 +75,11 @@ export class UsersComponent {
       data: userToEdit
     })
     .afterClosed().subscribe({
-      /*next: (data) =>{
-        this.users = this.users.map((user)=>{
-          if(user.id==userToEdit.id){
-            console.log("Intento cambiar el usuario");
-            console.log({...user});
-            console.log({...data});
-            console.log({...user,...data});
-            return {...user,...data}
-          }else{
-            return user;
-          }
-          });
-        }*/
-      });
-    }
+      next: (userUpdated) => {
+        if(userUpdated){
+          this.userServices.updateUserById(userToEdit.id,userUpdated);
+        }
+      }
+    })
+  }
 }

@@ -13,7 +13,7 @@ import { User } from '../../models/Users';
 })
 export class UserDialogComponent {
 
-
+  editingUser?: User;
   
   //Validaciones requeridas para cada uno de los campos 
   NombreControl = new FormControl<string | null>(null,[
@@ -50,6 +50,7 @@ constructor(private dialogRef: MatDialogRef<UserDialogComponent>,
   @Inject(MAT_DIALOG_DATA) private data?:User,
   ){
     if(this.data){
+      this.editingUser = data;
       this.NombreControl.setValue(this.data.nombre);
       this.PrimerApellidoControl.setValue(this.data.apellido1);
       this.SegundoApellidoControl.setValue(this.data.apellido2);
