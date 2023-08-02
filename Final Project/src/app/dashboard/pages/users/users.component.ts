@@ -23,7 +23,7 @@ export class UsersComponent {
       
       this.notifyServices.showSuccess("Se cargó correctamente");
       this.users = this.userServices.getUsers().pipe(
-        tap((valor) => console.log('Valor', valor)),
+        //tap((valor) => console.log('Valor', valor)),
         map((valor) => valor.map((usuario) => (
           {
             ...usuario, 
@@ -31,7 +31,7 @@ export class UsersComponent {
             apellido1: usuario.apellido1.toUpperCase(), 
             apellido2: usuario.apellido2.toUpperCase()
           }))),
-        tap((valor) => console.log('Valor nuevo', valor)),
+        //tap((valor) => console.log('Valor nuevo', valor)),
       );
       this.userServices.loadUsers();
     }

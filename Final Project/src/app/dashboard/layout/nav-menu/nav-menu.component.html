@@ -1,0 +1,15 @@
+<mat-nav-list>
+
+    <!--/dashboard -> /dashboard/home-->
+    <a routerLink="/dashboard/home" mat-list-item>Inicio</a>
+    
+    <!--/dashboard -> /dashboard/users-->
+    <a routerLink="/dashboard/users" mat-list-item>Usuarios</a>
+
+    <!--/dashboard -> /dashboard/users-->
+    <a routerLink="/dashboard/products" mat-list-item >Productos</a>
+
+    <!--/dashboard -> /auth-->
+    <a mat-list-item  (click)="LogOut()">Cerrar Sesión</a>
+
+  </mat-nav-list>

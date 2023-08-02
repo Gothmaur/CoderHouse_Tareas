@@ -5,15 +5,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { UsersModule } from './pages/users/users.module';
 import { SharedModule } from '../Shared/shared.module';
 import {MatListModule} from '@angular/material/list';
-
+import { RouterOutlet } from '@angular/router';
+import { NavMenuComponent } from './layout/nav-menu/nav-menu.component';
+import { ToolbarComponent } from './layout/toolbar/toolbar.component';
 
 
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    NavMenuComponent,
+    ToolbarComponent
   ],
   imports: [
+    RouterOutlet,
     SharedModule,
     MatSidenavModule,
     MatToolbarModule,

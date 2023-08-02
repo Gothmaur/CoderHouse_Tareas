@@ -8,6 +8,8 @@ import { SharedModule } from 'src/app/Shared/shared.module';
 import { UserService } from './services/user.service';
 import { UserMockService } from './mocks/users-mock.services';
 import { CommonModule } from '@angular/common';
+import { UserDetailComponent } from './pages/user-detail/user-detail.component';
+import { RouterModule } from '@angular/router';
 
  
 
@@ -17,9 +19,11 @@ import { CommonModule } from '@angular/common';
   declarations: [
     UsersComponent,
     UsersTableComponent,
-    UserDialogComponent
+    UserDialogComponent,
+    UserDetailComponent
   ],
   imports: [
+    RouterModule,
     SharedModule,
     CommonModule,
     MatGridListModule,
