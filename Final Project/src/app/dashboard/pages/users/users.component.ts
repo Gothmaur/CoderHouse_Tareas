@@ -36,7 +36,7 @@ export class UsersComponent {
     }
 
 
-
+//Crear usuario
   onCreateUser():void{
     //Abre form
     const dialogRef=this.matDialog.open(UserDialogComponent)
@@ -62,13 +62,13 @@ export class UsersComponent {
       },
     });
   }
-
+//Eliminar Usuario
   onDeleteUser(userToDelete:User):void{
-    if(confirm("¿Está seguro de eliminar este usuario? {{userToDelete.nombre}}")){
+    if(confirm(`¿Está seguro de eliminar este usuario? {{userToDelete.nombre}}`)){
       this.userServices.deleteUserById(userToDelete.id);
     }
   }
-
+//Editar Usuario
   onEditUser(userToEdit:User):void{
     this.matDialog.open(UserDialogComponent,{
       data: userToEdit

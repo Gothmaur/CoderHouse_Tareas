@@ -10,6 +10,7 @@ import { UserMockService } from './mocks/users-mock.services';
 import { CommonModule } from '@angular/common';
 import { UserDetailComponent } from './pages/user-detail/user-detail.component';
 import { RouterModule } from '@angular/router';
+import { UsersRoutingModule } from './users-routing.module';
 
  
 
@@ -27,7 +28,8 @@ import { RouterModule } from '@angular/router';
     SharedModule,
     CommonModule,
     MatGridListModule,
-    MatTableModule
+    MatTableModule,
+    UsersRoutingModule
   ],
   exports:[
     UsersComponent
