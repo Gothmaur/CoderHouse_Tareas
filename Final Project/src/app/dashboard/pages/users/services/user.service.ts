@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { User, UserCreation, UserUpdating } from '../models/Users';
 import { BehaviorSubject, Observable, Subject, delay, map, of, take } from 'rxjs';
 import { NotifyService } from 'src/app/core/services/notify.service';
+import { HttpClient } from '@angular/common/http';
 
 //Cargar Database con 1 seg de delay 
 const UserDB: Observable<User[]> = of ([{
@@ -25,14 +26,20 @@ export class UserService {
 
   private usuarios$ = new BehaviorSubject<User[]>([]);
   private notify = new NotifyService;
+  
 
-  constructor() { }
+  constructor(private httpClient:HttpClient) { }
   //cargar usuarios
   loadUsers(): void{
-    UserDB.subscribe({
-      next: (usuariosFromDB) => this.usuarios$.next(usuariosFromDB),
-    });
-    this.usuarios$.next(this.usuarios);
+    //UserDB.subscribe({
+    //  next: (usuariosFromDB) => this.usuarios$.next(usuariosFromDB),
+    //});
+    //this.usuarios$.next(this.usuarios);
+    this.httpClient.get<User[]>('http://localhost:3000/users').subscribe({
+      next:(response)=> {
+        this.usuarios$.next(response);
+      }
+    })
   }
 
   //Obtener usuarios

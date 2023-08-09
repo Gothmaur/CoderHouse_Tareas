@@ -1,0 +1,13 @@
+{
+  "users": [
+      {
+      "id": 1,
+      "nombre":"Mauricio",
+      "apellido1":"Trejo",
+      "apellido2":"Miranda",
+      "email": "mtrejom1501@alumno.ipn.mx",
+      "clave": "123123"
+    }
+  ],
+  "products":[]
+}
