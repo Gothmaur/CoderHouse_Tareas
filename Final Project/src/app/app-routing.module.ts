@@ -8,54 +8,18 @@ import { UserDetailComponent } from './dashboard/pages/users/pages/user-detail/u
 import { ProductosComponent } from './dashboard/pages/productos/productos.component';
 import { RegisterComponentComponent } from './auth/pages/registro/register-component/register-component.component';
 import { LoginComponentComponent } from './auth/pages/LogIn/login-component/login-component.component';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    children:[
-      { //dashboard/home
-        path:'home', component: HomeComponent
-      },
-      {
-        //dashboard/users
-        path:'users', component: UsersComponent
-      },
-      {
-        //dashboard/users/:id
-        path:'users/:id',
-        component: UserDetailComponent
-      },
-      {
-        //dashboard/productoss
-        path:'products',
-        component: ProductosComponent
-      },
-      {
-        path: '**',
-        redirectTo: '/home'
-      }
-    ]
+    loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
   {
     path: 'auth',
     component: AuthComponent,
-    children:[
-      {
-        //auth/login/
-        path:'login',
-        component: LoginComponentComponent
-      },
-      {
-        //auth/registrarse/
-        path:'register',
-        component: RegisterComponentComponent
-      },
-      {
-        path: '**',
-        redirectTo: 'login'
-      }
-    ]
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: '**',

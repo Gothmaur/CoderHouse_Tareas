@@ -20,8 +20,6 @@ export class UsersComponent {
   constructor(private matDialog: MatDialog, 
     private userServices:UserService,
     private notifyServices:NotifyService){
-      
-      this.notifyServices.showSuccess("Se cargó correctamente");
       this.users = this.userServices.getUsers().pipe(
         //tap((valor) => console.log('Valor', valor)),
         map((valor) => valor.map((usuario) => (
@@ -34,6 +32,7 @@ export class UsersComponent {
         //tap((valor) => console.log('Valor nuevo', valor)),
       );
       this.userServices.loadUsers();
+      this.notifyServices.showSuccess("Se cargó correctamente");
     }
 
 

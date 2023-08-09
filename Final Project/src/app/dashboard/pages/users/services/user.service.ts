@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User, UserCreation, UserUpdating } from '../models/Users';
-import { BehaviorSubject, Observable, Subject, delay, of, take } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, delay, map, of, take } from 'rxjs';
 import { NotifyService } from 'src/app/core/services/notify.service';
 
 //Cargar Database con 1 seg de delay 
@@ -40,6 +40,14 @@ export class UserService {
     return this.usuarios$.asObservable();
   }
  
+  //Obtener usuarios
+  getUsersById(id: Number):Observable < User | undefined >{
+    return this.usuarios$.pipe(
+      map( ( users ) => users.find( ( u ) => u.id === id) ),
+      take(1)
+    );
+  }
+
   //Crear usuario en la vista
   createUser(usuario:UserCreation): void{
     this.usuarios$.pipe(take(1)).subscribe({
