@@ -43,7 +43,7 @@ import { UsersRoutingModule } from './users-routing.module';
       provide: UserService,
       useFactory: () => {
         const Is_Dev = false;
-        return Is_Dev ? new UserMockService() : new UserService;
+        return Is_Dev ? new UserMockService() :  UsersComponent;
       },
     },
   ]

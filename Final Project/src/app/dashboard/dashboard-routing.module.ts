@@ -20,11 +20,11 @@ import { UsersComponent } from "./pages/users/users.component";
                 //dashboard/productoss
                 path:'products',
                 component: ProductosComponent
-              },
+              }/*,
               {
                 path: '**',
                 redirectTo: 'home'
-              }
+              }*/
         ]),
     ],
     exports : [ RouterModule ]

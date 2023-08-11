@@ -25,9 +25,9 @@ export class UsersComponent {
         map((valor) => valor.map((usuario) => (
           {
             ...usuario, 
-            nombre: usuario.nombre.toUpperCase(), 
-            apellido1: usuario.apellido1.toUpperCase(), 
-            apellido2: usuario.apellido2.toUpperCase()
+            nombre: usuario.nombre,
+            apellido1: usuario.apellido1, 
+            apellido2: usuario.apellido2
           }))),
         //tap((valor) => console.log('Valor nuevo', valor)),
       );

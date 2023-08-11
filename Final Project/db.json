@@ -1,13 +1,21 @@
 {
   "users": [
-      {
-      "id": 1,
-      "nombre":"Mauricio",
-      "apellido1":"Trejo",
-      "apellido2":"Miranda",
-      "email": "mtrejom1501@alumno.ipn.mx",
-      "clave": "123123"
+    {
+      "nombre": "Mauricio",
+      "apellido1": "Trejo",
+      "apellido2": "Miranda",
+      "email": "mau.tar@gmail.com",
+      "clave": "mauricio",
+      "id": 1
+    },
+    {
+      "nombre": "Gabriela",
+      "apellido1": "Arvizu",
+      "apellido2": "Velásquez",
+      "email": "gaby@mail.com",
+      "clave": "gabigabi",
+      "id": 2
     }
   ],
-  "products":[]
+  "products": []
 }
