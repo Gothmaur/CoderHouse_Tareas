@@ -22,3 +22,8 @@ export interface UserUpdating{
     email?:string;
     clave?:string;
 }
+
+export interface LoginPayload{
+    email?:string;
+    clave?:string;
+}
