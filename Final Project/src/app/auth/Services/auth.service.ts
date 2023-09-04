@@ -21,40 +21,40 @@ export class AuthService {
   }
 
   login(payload:LoginPayload):void{
-    const mock_user: User = {
-      id: 10,
-      nombre:"Prueba",
-      apellido1:"prueba1",
-      apellido2:"Prueba2",
-      email:"prueba@prueba",
-      clave:"pruebita"
-    }
-
-    if(payload.email ===mock_user.email && payload.password===mock_user.clave)
-    {
-      this._authUsers$.next(mock_user);
-      this.router.navigate(['/dashboard/home'])
-    }else{
-      this.notify.showError("Información no valida");
-      this._authUsers$.next(null);
-    }
-
+    console.log(payload);
     
-    /*this.httpClient.get<user>('http://localhost/3000/users',{
+    this.httpClient.get<User[]>('http://localhost:3000/users',{
       params:{
-        email:payload.email || '',
-        clave:payload.clave || ''
+        email: payload.email || '',
+        clave: payload.password || ''
       }
-    }).subscribe({
-      next: (response) => {
+    }).subscribe({//Se consultan los datos de la DB usando http
+      next:(response)=> {
         if(response.length){
           this._authUsers$.next(response[0]);
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard/home']);
         }else{
-          this.notify.showError('Usuario y/o contraseña incorrecta');
+          this.notify.showError('E-mail o contraseña no validos');
           this._authUsers$.next(null);
         }
+      },
+      error: () =>{
+        //Si hay algún error, mostrar "Error al conectar".
+        this.notify.showError("Error al conectar con el servidor") 
       }
-    })*/
+    })
+  /* 
+    this.httpClient.get<User[]>('http://localhost:3000/users').subscribe({//Se consultan los datos de la DB usando http
+      next:(response)=> {
+        console.log(response);
+        this.usuarios$.next(response);
+      },
+      error: () =>{
+        //Si hay algún error, mostrar "Error al conectar".
+        this.notify.showError("Error al conectar con el servidor") 
+      }
+    })
+  */
+  
   }
 }
