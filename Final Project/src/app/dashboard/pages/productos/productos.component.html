@@ -1,1 +1,13 @@
-<p>productos works!</p>
+<button mat-flat-button color="primary" type="button" (click)="onCreateProduct()">
+    <mat-icon>add</mat-icon>
+    Agregar Curso
+</button>
+
+<div>
+    <span appResaltado>
+        Aquí pordrá visualizar la información de los Cursos.
+    </span>
+</div><!--
+<app-product-table [dataSource] = '(products | async) || []' 
+(deleteProduct)="onDeleteProduct($event)"
+(editProduct)="onEditProduct($event)"></app-product-table>-->   

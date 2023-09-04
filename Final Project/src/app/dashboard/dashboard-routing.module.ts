@@ -19,7 +19,8 @@ import { UsersComponent } from "./pages/users/users.component";
               {
                 //dashboard/productoss
                 path:'products',
-                component: ProductosComponent
+                component: ProductosComponent,
+                loadChildren: () => import('./pages/productos/productos.module').then( (m) => m.ProductosModule),
               }/*,
               {
                 path: '**',
