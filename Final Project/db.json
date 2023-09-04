@@ -15,6 +15,14 @@
       "email": "gaby@mail.com",
       "clave": "gabigabi",
       "id": 2
+    },
+    {
+      "nombre": "Iris",
+      "apellido1": "Salinas",
+      "apellido2": "Vergara",
+      "email": "irissave@mail.com",
+      "clave": "1234",
+      "id": 3
     }
   ],
   "products": [

@@ -9,7 +9,7 @@
         <div class="col-6 field">
             <mat-form-field appearance = "outline">
                 <mat-label>Nombre</mat-label>
-                <input formControlName ="Nombre" matInput type="text" name = "nombre">
+                <input formControlName ="nombre" matInput type="text" name = "nombre">
                 <mat-error *ngIf = "NombreControl.hasError('required')">
                     Este campo es requerido
                 </mat-error>
@@ -22,7 +22,7 @@
         <div class="col-6 field">
             <mat-form-field appearance = "outline">
                 <mat-label>Primer apellido</mat-label>
-                <input formControlName ="PrimerApellido" matInput type = "text" name = "apellido1">
+                <input formControlName ="apellido1" matInput type = "text" name = "apellido1">
                 <mat-error *ngIf = "PrimerApellidoControl.hasError('required')">
                     Este campo es requerido
                 </mat-error>
@@ -35,7 +35,7 @@
         <div class="col-6 field">
             <mat-form-field appearance = "outline">
                 <mat-label>Segundo apellido</mat-label>
-                <input formControlName ="SegundoApellido" matInput type = "text" name = "apellido2">
+                <input formControlName ="apellido2" matInput type = "text" name = "apellido2">
                 <mat-error *ngIf = "SegundoApellidoControl.hasError('minlength')"> Debe contar con al menos 2 caracteres</mat-error>
             </mat-form-field>
         </div>
@@ -43,7 +43,7 @@
         <div class="col-12 field">
             <mat-form-field appearance = "outline">
                 <mat-label>e-mail</mat-label>
-                <input formControlName ="Email" matInput type = "text" name = "email">
+                <input formControlName ="email" matInput type = "text" name = "email">
                 <mat-error *ngIf = "EmailControl.hasError('required')"> Este campo es requerido</mat-error>
                 <mat-error *ngIf = "EmailControl.hasError('email')"> 
                     Debe cumplir con el formato nombre@dominio.com
@@ -53,7 +53,7 @@
         <div class="col-6 field">
             <mat-form-field appearance = "outline">
                 <mat-label>Contraseña</mat-label>
-                <input formControlName ="Clave" matInput type = "password" name = "clave">
+                <input formControlName ="clave" matInput type = "password" name = "clave">
                 <mat-error *ngIf = "ClaveControl.hasError('required')"> Por favor ingrese una contraseña</mat-error>
             </mat-form-field>
         </div>

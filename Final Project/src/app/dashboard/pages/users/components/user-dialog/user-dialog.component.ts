@@ -37,11 +37,11 @@ export class UserDialogComponent {
 
 
   usersForm = new FormGroup({
-    Nombre: this.NombreControl,
-    PrimerApellido: this.PrimerApellidoControl,
-    SegundoApellido: this.SegundoApellidoControl,
-    Email: this.EmailControl,
-    Clave: this.ClaveControl
+    nombre: this.NombreControl,
+    apellido1: this.PrimerApellidoControl,
+    apellido2: this.SegundoApellidoControl,
+    email: this.EmailControl,
+    clave: this.ClaveControl
   });
 
 
