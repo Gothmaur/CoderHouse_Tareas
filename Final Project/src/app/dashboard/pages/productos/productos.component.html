@@ -7,7 +7,9 @@
     <span appResaltado>
         Aquí pordrá visualizar la información de los Cursos.
     </span>
-</div><!--
-<app-product-table [dataSource] = '(products | async) || []' 
-(deleteProduct)="onDeleteProduct($event)"
-(editProduct)="onEditProduct($event)"></app-product-table>-->   
+</div>
+<div>
+    <app-product-table [dataSource] = '(products | async) || []' 
+    (deleteProduct)="onDeleteProduct($event)"
+    (editProduct)="onEditProduct($event)"></app-product-table>   
+</div>

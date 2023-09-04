@@ -22,7 +22,7 @@
     "nombre": "Angular",
     "descripcion": "Desarrollo web empleando herramientas Angular",
     "tipo": "Front-end",
-    "precio": "1",
+    "precio": "100",
     "profesor": "Josue Baez"
   }]
 }
