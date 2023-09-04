@@ -17,5 +17,12 @@
       "id": 2
     }
   ],
-  "products": []
+  "products": [
+    {"id": "1",
+    "nombre": "Angular",
+    "descripcion": "Desarrollo web empleando herramientas Angular",
+    "tipo": "Front-end",
+    "precio": "1",
+    "profesor": "Josue Baez"
+  }]
 }
