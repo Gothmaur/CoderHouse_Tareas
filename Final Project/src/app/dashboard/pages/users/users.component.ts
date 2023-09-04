@@ -48,11 +48,11 @@ export class UsersComponent {
         if(v) {
           //console.log('recibí el valor ',v);
           this.userServices.createUser({
-            nombre: v.Nombre,
-            apellido1: v.PrimerApellido,
-            apellido2: v.SegundoApellido,
-            email: v.Email,
-            clave: v.Clave
+            nombre: v.nombre,
+            apellido1: v.apellido1,
+            apellido2: v.apellido2,
+            email: v.email,
+            clave: v.clave
           });
           //console.log('Aprobado');
         }
