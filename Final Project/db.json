@@ -14,6 +14,7 @@
       "apellido2": "Velásquez",
       "email": "gaby@mail.com",
       "clave": "gabigabi",
+      "token": "ASdbdqh9y78GKJASs869",
       "id": 2
     },
     {
@@ -22,6 +23,7 @@
       "apellido2": "Vergara",
       "email": "irissave@mail.com",
       "clave": "1234",
+      "token": "ASdbgqh9yD8GKpJS1s89",
       "id": 3
     }
   ],

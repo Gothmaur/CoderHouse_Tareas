@@ -64,7 +64,7 @@ constructor(private dialogRef: MatDialogRef<UserDialogComponent>,
     if(this.usersForm.invalid){
       alert("Por favor llene todos los campos correctamente");
     }else{
-      alert(JSON.stringify(this.usersForm.value));
+      //alert(JSON.stringify(this.usersForm.value));
       this.dialogRef.close(this.usersForm.value);
     }
   }

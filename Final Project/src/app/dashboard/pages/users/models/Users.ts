@@ -5,6 +5,7 @@ export interface User{
     apellido2:string;
     email:string;
     clave:string;
+    token:string;
 }
 
 export interface UserCreation{

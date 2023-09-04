@@ -14,6 +14,7 @@ export class NavMenuComponent {
     this.router.navigate(['auth','login'],{
       //relativeTo: this.activatedRoute,
     });
+    localStorage.removeItem('token');
   }
 
   goToUsers():void{

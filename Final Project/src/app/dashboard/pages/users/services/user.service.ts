@@ -3,6 +3,8 @@ import { User, UserCreation, UserUpdating } from '../models/Users';
 import { BehaviorSubject, Observable, Subject, delay, filter, map, mergeMap, of, take } from 'rxjs';
 import { NotifyService } from 'src/app/core/services/notify.service';
 import { HttpClient } from '@angular/common/http';
+import { generateRandomString } from 'src/app/Shared/Utils/helpers';
+import { environment } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +18,8 @@ export class UserService {
   
   //cargar usuarios
   loadUsers(): void{
-    this.httpClient.get<User[]>('http://localhost:3000/users').subscribe({//Se consultan los datos de la DB usando http
+    this.httpClient.get<User[]>(environment.baseApiURL + '/users').subscribe({//Se consultan los datos de la DB usando http
       next:(response)=> {
-        console.log(response);
         this.usuarios$.next(response);
       },
       error: () =>{
@@ -43,7 +44,8 @@ export class UserService {
 
   //Crear usuario en la vista
   createUser(usuario:UserCreation): void{
-    this.httpClient.post<User>('http://localhost:3000/users',usuario).pipe( //
+    const token = generateRandomString(20); 
+    this.httpClient.post<User>(environment.baseApiURL + '/users',{...usuario, token }).pipe( //
       mergeMap((usuarioNuevo) => this.usuarios$.pipe(
         take(1),
         map((arrayActual)=>[...arrayActual, usuarioNuevo])
@@ -51,6 +53,7 @@ export class UserService {
     ).subscribe({
       next: (arrayActualizado) => {
         this.usuarios$.next(arrayActualizado);
+        this.notify.showSuccess("Registro exitoso");
       },
       error: () => this.notify.showError("Error al conectar con el servidor")
     })
@@ -58,8 +61,11 @@ export class UserService {
   
   //Actualizar usuario
   updateUserById(id: number, usuario:UserUpdating): void{
-    this.httpClient.put('http://localhost:3000/users/'+id, usuario).subscribe({
-      next: () => this.loadUsers(),
+    this.httpClient.put(environment.baseApiURL + '/users/'+id, usuario).subscribe({
+      next: () => {
+        this.loadUsers();
+        this.notify.showSuccess("Actualización exitosa");
+      },
       error: () => this.notify.showError("Error al conectar con el servidor")
 
     })
@@ -67,7 +73,7 @@ export class UserService {
 
   //Eliminar Usuario
   deleteUserById(id: number): void{
-    this.httpClient.delete<User>('http://localhost:3000/users/'+id) //Eliminar usuario de la lista
+    this.httpClient.delete<User>(environment.baseApiURL + '/users/'+id) //Eliminar usuario de la lista
     .pipe( mergeMap( (/* NecesitoVariable? */) => this.usuarios$.pipe(
       take(1),
       map( (arrayActual) => arrayActual.filter( (u) => u.id !== id) )//Filtrar lista sin el usuario eliminado

@@ -8,7 +8,8 @@ export class UserMockService{
           apellido1:'Falso',
           apellido2:'Falso',
           email: 'Falso@Falso',
-          clave: 'Falso'
+          clave: 'Falso',
+          token: ''
         }
       ];
       
