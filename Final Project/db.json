@@ -18,11 +18,29 @@
     }
   ],
   "products": [
-    {"id": "1",
-    "nombre": "Angular",
-    "descripcion": "Desarrollo web empleando herramientas Angular",
-    "tipo": "Front-end",
-    "precio": "100",
-    "profesor": "Josue Baez"
-  }]
+    {
+      "id": "1",
+      "nombre": "Angular",
+      "descripcion": "Desarrollo web empleando herramientas Angular",
+      "tipo": "Front-end",
+      "precio": "100",
+      "profesor": "Josue Baez"
+    },
+    {
+      "nombre": "Base de datos",
+      "descripcion": "Desarrollo de bases de datos empleando SQL Server",
+      "tipo": "Base de datos",
+      "profesor": "Enrique Olvera",
+      "precio": "1234",
+      "id": "tGJi9Ns"
+    },
+    {
+      "nombre": "Ingeniería del Software",
+      "descripcion": "Curso de análisis y diseño de diagramas",
+      "tipo": "Análisis y Diseño",
+      "profesor": "Sandy Bautista",
+      "precio": "1234",
+      "id": "jweVldO"
+    }
+  ]
 }

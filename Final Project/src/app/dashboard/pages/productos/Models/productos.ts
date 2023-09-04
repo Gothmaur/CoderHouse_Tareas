@@ -9,7 +9,7 @@ export interface Products{
 
 export interface ProductCreation{
     nombre: string;
-    especialidad: string;
+    descripcion: string;
     tipo: string;
     precio: number;
     profesor: string;
@@ -17,7 +17,7 @@ export interface ProductCreation{
 
 export interface ProductUpdating{
     nombre?: string;
-    especialidad?: string;
+    descripcion?: string;
     tipo?: string;
     precio?: number;
     profesor?: string;

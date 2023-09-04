@@ -47,11 +47,11 @@ export class ProductosComponent {
         if(v) {
           //console.log('recibí el valor ',v);
           this.productServices.createProduct({
-            nombre: v.Nombre,
-            especialidad: v.Especialidad,
-            tipo: v.Tipo,
-            profesor: v.Profesor,
-            precio: v.Precio
+            nombre: v.nombre,
+            descripcion: v.descripcion,
+            tipo: v.tipo,
+            profesor: v.profesor,
+            precio: v.precio
           });
           //console.log('Aprobado');
         }
