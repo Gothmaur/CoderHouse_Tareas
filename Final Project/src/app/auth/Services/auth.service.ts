@@ -21,7 +21,6 @@ export class AuthService {
   }
 
   login(payload:LoginPayload):void{
-    console.log(payload);
     
     this.httpClient.get<User[]>('http://localhost:3000/users',{
       params:{
