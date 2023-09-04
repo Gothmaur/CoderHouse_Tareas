@@ -8,6 +8,7 @@ import { RouterOutlet } from '@angular/router';
 import { NavMenuComponent } from './layout/nav-menu/nav-menu.component';
 import { ToolbarComponent } from './layout/toolbar/toolbar.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -23,7 +24,8 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    CommonModule
   ],
   exports:  [
     DashboardComponent

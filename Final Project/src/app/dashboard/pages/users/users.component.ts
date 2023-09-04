@@ -1,10 +1,10 @@
-import { Component, Pipe } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserDialogComponent } from './components/user-dialog/user-dialog.component';
 import { User } from './models/Users';
 import { UserService } from './services/user.service';
 import { NotifyService } from 'src/app/core/services/notify.service';
-import { Observable, map, tap } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 
 
