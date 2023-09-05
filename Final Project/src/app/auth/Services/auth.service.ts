@@ -6,16 +6,20 @@ import { HttpClient } from '@angular/common/http';
 import { LoginPayload } from '../Models';
 import { User } from 'src/app/dashboard/pages/users/models/Users';
 import { environment } from 'src/environment/environment';
+import { AuthActions } from 'src/app/store/auth/auth.actions';
+import { Store } from '@ngrx/store';
+import { Token } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private _authUsers$ = new BehaviorSubject<User | null>(null);
-  public authUsers$ = this._authUsers$.asObservable();
+  //private _authUsers$ = new BehaviorSubject<User | null>(null);
+  //public authUsers$ = this._authUsers$.asObservable();
+  
 
-  constructor(private notify:NotifyService, private router:Router, private httpClient:HttpClient) { }
+  constructor(private notify:NotifyService, private router:Router, private httpClient:HttpClient,private store: Store) { }
 
   isAuthenticated(): Observable<boolean>{
     //return this.authUsers$.pipe(take(1),map( (user)=> !!user ));
@@ -25,6 +29,11 @@ export class AuthService {
       }
     }).pipe(
       map((usersResult) =>{
+        if(usersResult.length){
+          const authUser = usersResult[0];
+          this.store.dispatch(AuthActions.setAuthUser({payload:authUser}));
+        }
+
         return !!usersResult.length;
       })
     )
@@ -41,19 +50,31 @@ export class AuthService {
       next:(response)=> {
         if(response.length){
           const authUser = response[0];
-          this._authUsers$.next(response[0]);
-          this.router.navigate(['/dashboard/home']);
+          //Respuesta en obserbable
+          //this._authUsers$.next(response[0]);
+          //Respuesta en store
+          this.store.dispatch(AuthActions.setAuthUser({payload : authUser}));
           localStorage.setItem('token',authUser.token);
+          this.router.navigate(['/dashboard/home']);
+          
         }else{
           this.notify.showError('E-mail o contraseña no validos');
-          this._authUsers$.next(null);
+          this.store.dispatch(AuthActions.setAuthUser({payload : null}));
+          //this._authUsers$.next(null);
         }
       },
       error: () =>{
         //Si hay algún error, mostrar "Error al conectar".
-        this.notify.showError("Error al conectar con el servidor") 
+        this.notify.showError("Error al conectar con el servidor"),
+        this.store.dispatch(AuthActions.setAuthUser({payload : null}));
       }
     })
   
+  }
+
+  logOut():void{
+    this.store.dispatch(AuthActions.setAuthUser({payload : null}));
+    localStorage.removeItem('token');
+    //console.log(localStorage.getItem('token'));
   }
 }
