@@ -30,7 +30,7 @@
   ],
   "products": [
     {
-      "id": "1",
+      "id": 1,
       "nombre": "Angular",
       "descripcion": "Desarrollo web empleando herramientas Angular",
       "tipo": "Front-end",
@@ -43,7 +43,7 @@
       "tipo": "Base de datos",
       "profesor": "Enrique Olvera",
       "precio": "1234",
-      "id": "tGJi9Ns"
+      "id": 2
     },
     {
       "nombre": "Ingeniería del Software",
@@ -51,7 +51,7 @@
       "tipo": "Análisis y Diseño",
       "profesor": "Sandy Bautista",
       "precio": "1234",
-      "id": "jweVldO"
+      "id": 3
     }
   ]
 }

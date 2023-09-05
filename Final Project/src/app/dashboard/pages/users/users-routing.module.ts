@@ -12,7 +12,7 @@ import { UsersComponent } from './users.component';
     },
     {
       //dashboard/users/:id
-      path:'users:id',
+      path:':id',
       component: UserDetailComponent
     },
   ]
