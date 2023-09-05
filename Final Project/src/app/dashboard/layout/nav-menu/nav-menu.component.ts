@@ -13,7 +13,6 @@ export class NavMenuComponent {
 
   LogOut():void{
     this.router.navigate(['auth','login'],{});
-    //localStorage.removeItem('token');
     this.authService.logOut();
 
   }
@@ -32,6 +31,12 @@ export class NavMenuComponent {
 
   goToHome():void{
     this.router.navigate(['dashboard','home'],{
+      //relativeTo: this.activatedRoute,
+    });
+  }
+
+  goToInscriptions():void{
+    this.router.navigate(['dashboard','inscripciones'],{
       //relativeTo: this.activatedRoute,
     });
   }

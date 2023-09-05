@@ -51,10 +51,12 @@
                 }
               ],
               "outputHashing": "all",
-              "fileReplacements":[{
-                "replace": "src/environments/enviromnet.ts",
-                "with": "src/environments/enviromnet.prod.ts"
-              }]
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/enviromnet.ts",
+                  "with": "src/environments/enviromnet.prod.ts"
+                }
+              ]
             },
             "development": {
               "buildOptimizer": false,
@@ -109,6 +111,9 @@
     }
   },
   "cli": {
-    "analytics": "ca1df57f-e820-4231-a568-a1fc51ec3078"
+    "analytics": "ca1df57f-e820-4231-a568-a1fc51ec3078",
+    "schematicCollections": [
+      "@ngrx/schematics"
+    ]
   }
 }
